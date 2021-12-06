@@ -1,0 +1,13 @@
+"""Circles admin."""
+
+from django.contrib import admin
+
+from cride.circles.models import Circle
+
+@admin.register(Circle)
+class CircleAdmin(admin.ModelAdmin):
+    """Circle admin."""
+
+    list_display = ('slug_name', 'name', 'is_public', 'verified', 'is_limited', 'members_limite')
+    search_fields = ('slug_name', 'name')
+    list_filter = ('is_public', 'verified', 'is_limited')

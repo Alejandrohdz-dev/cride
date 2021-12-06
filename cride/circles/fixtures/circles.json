@@ -1,0 +1,275 @@
+[
+  {
+      "model": "circles.circle",
+      "pk": 1,
+      "fields": {
+          "name": "Facultad de Ciencias, UNAM",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "unam-fciencias",
+          "is_public": 1,
+          "verified": 1,
+          "members_limite": 0
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 2,
+      "fields": {
+          "name": "Tec de Monterrey, Campos Santa Fé",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "itesm-csf",
+          "is_public": 1,
+          "verified": 1,
+          "members_limite": 0
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 3,
+      "fields": {
+          "name": "Inventive",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "inventive",
+          "is_public": 0,
+          "verified": 1,
+          "members_limite": 30
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 4,
+      "fields": {
+          "name": "Platzi Bogotá",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "platzi-bog",
+          "is_public": 0,
+          "verified": 1,
+          "members_limite": 120
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 5,
+      "fields": {
+          "name": "Platzi México",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "platzi-mex",
+          "is_public": 0,
+          "verified": 1,
+          "members_limite": 30
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 6,
+      "fields": {
+          "name": "Google México",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "google-mx",
+          "is_public": 0,
+          "verified": 1,
+          "members_limite": 250
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 7,
+      "fields": {
+          "name": "Curso de Fotografía, UVA",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "curso-foto-uva",
+          "is_public": 1,
+          "verified": 0,
+          "members_limite": 25
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 8,
+      "fields": {
+          "name": "Equipo de futbol, chapinero",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "fut-chapinero",
+          "is_public": 1,
+          "verified": 0,
+          "members_limite": 40
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 9,
+      "fields": {
+          "name": "Grupo 3340, Prácticas de campo",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "grupo-3340-campo",
+          "is_public": 1,
+          "verified": 0,
+          "members_limite": 50
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 10,
+      "fields": {
+          "name": "Generación 2018 Escuela de enfermería",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "enfermeria-2018",
+          "is_public": 1,
+          "verified": 0,
+          "members_limite": 0
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 11,
+      "fields": {
+          "name": "Facultad de Ingeniería, UNAM",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "unam-fi",
+          "is_public": 1,
+          "verified": 1,
+          "members_limite": 0
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 12,
+      "fields": {
+          "name": "Facultad de Medicina, UNAM",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "unam-fm",
+          "is_public": 1,
+          "verified": 1,
+          "members_limite": 0
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 13,
+      "fields": {
+          "name": "Platzi Developer Circle - Bogotá",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "platzi-dev",
+          "is_public": 1,
+          "verified": 0,
+          "members_limite": 0
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 14,
+      "fields": {
+          "name": "Platzi Developer Circle - CDMX",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "platzi-dev-mx",
+          "is_public": 1,
+          "verified": 0,
+          "members_limite": 0
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 15,
+      "fields": {
+          "name": "IBM Santa Fé",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "ibm-santafe",
+          "is_public": 0,
+          "verified": 1,
+          "members_limite": 0
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 16,
+      "fields": {
+          "name": "P&G - Santa Fé",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "p-n-g",
+          "is_public": 1,
+          "verified": 0,
+          "members_limite": 1000
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 17,
+      "fields": {
+          "name": "Amigos de Centraal",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "comunidad-centraal",
+          "is_public": 1,
+          "verified": 0,
+          "members_limite": 0
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 18,
+      "fields": {
+          "name": "Central Academy",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "centraal-academy",
+          "is_public": 1,
+          "verified": 1,
+          "members_limite": 0
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 19,
+      "fields": {
+          "name": "Estado de México - CDMX",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "edomex",
+          "is_public": 1,
+          "verified": 0,
+          "members_limite": 0
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 20,
+      "fields": {
+          "name": "Satelite - Santa Fé entre semana",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "sat-sfe-week",
+          "is_public": 1,
+          "verified": 0,
+          "members_limite": 0
+      }
+  },
+  {
+      "model": "circles.circle",
+      "pk": 21,
+      "fields": {
+          "name": "Sable Digital",
+          "created": "2021-08-31",
+          "modified": "2019-08-31",
+          "slug_name": "sable",
+          "is_public": 0,
+          "verified": 0,
+          "members_limite": 30
+      }
+  }
+]
