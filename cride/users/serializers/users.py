@@ -2,6 +2,7 @@
 import jwt
 from datetime import timedelta
 
+# Django
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.contrib.auth import authenticate, password_validation
@@ -9,21 +10,33 @@ from django.core.validators import RegexValidator
 from django.template.loader import render_to_string
 from django.utils import timezone
 
+# Django Rest Framework
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from rest_framework.validators import UniqueValidator
 
+# Local
 from cride.users.models import User, Profile
+from cride.users.serializers.profiles import ProfileModelSerializer
 
 
 class UserModelSerializer(serializers.ModelSerializer):
     """User model serializer."""
 
+    profile = ProfileModelSerializer(read_only=True)
+
     class Meta:
         """Meta class."""
 
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'phone_number')
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'phone_number',
+            'profile'
+        )
 
 
 class UserSignupSerializer(serializers.Serializer):
@@ -66,7 +79,7 @@ class UserSignupSerializer(serializers.Serializer):
     def create(self, data):
         """Handle user and profile creation."""
         data.pop('password_confirmation')
-        user = User.objects.create_user(**data, is_verified=False)
+        user = User.objects.create_user(**data, is_verified=False, is_client=True)
         Profile.objects.create(user=user)
         return user
 
