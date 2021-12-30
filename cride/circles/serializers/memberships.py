@@ -1,11 +1,14 @@
 """Memberships serializer."""
 
+# Django
+from django.utils import timezone
+
 # Django Rest Framework
 from rest_framework import serializers
 
 # Local
 from cride.users.serializers.users import UserModelSerializer
-from cride.circles.models import Memberships
+from cride.circles.models import Memberships, Invitation
 
 
 class MembershipsModelSerializer(serializers.ModelSerializer):
@@ -33,3 +36,71 @@ class MembershipsModelSerializer(serializers.ModelSerializer):
             'invited_by',
             'rides_taken', 'rides_offered'
         )
+
+
+class AddMemberSerializer(serializers.Serializer):
+    """Add member serializer .
+
+    Handle the addition of a new member to a circle
+    Circle objecct must be provided in the context.
+    """
+    invitation_code = serializers.CharField(min_length=8)
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault)
+
+    def validate_user(self, data):
+        """Verify user isn't already a member."""
+        circle = self.context['circle']
+        user = data
+        q = Memberships.objects.filter(circle=circle, user=user)
+        if q.exists():
+            raise serializers.ValidationError('User  is already member of this circle')
+
+    def validate_invitation_code(self, data):
+        """Verify code exists and that it is related to the circle."""
+        try:
+            invitation = Invitation.objects.get(
+                code=data,
+                circle=self.context['circle'],
+                used=False
+            )
+        except Invitation.DoesNotExist:
+            raise serializers.ValidationError('Invalid invitation code.')
+        self.context['invitation'] = invitation
+        return data
+
+    def validate(self, data):
+        """Verify circle is capable of accepting a new member."""
+        circle = self.context['circle']
+        if circle.is_limited and circle.members.count() >= circle.members_limit:
+            raise serializers.ValidationError('Circle has reached its members limit.')
+        return data
+
+    def create(self, data):
+        """Create new circle member."""
+        circle = self.context['circle']
+        invitation = self.context['invitation']
+        user = data['user']
+
+        now = timezone.now()
+
+        # Member creation
+        member = Memberships.objects.create(
+            user=user,
+            profile=user.profile,
+            circle=circle,
+            invited_by=invitation.issued_by
+        )
+
+        # Update Invitation
+        invitation.used_by = user
+        invitation.used = True
+        invitation.used_at = now
+        invitation.save()
+
+        # Update issuer data
+        issuer = Memberships.objects.get(user=invitation.issued_by, circle=circle)
+        issuer.used_invitation += 1
+        issuer.remaining_invitations -= 1
+        issuer.save()
+
+        return member
