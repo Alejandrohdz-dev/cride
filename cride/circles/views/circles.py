@@ -1,7 +1,9 @@
 """Circles views."""
 
 # Django REST Framework
+from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework import viewsets, mixins
+from django_filters.rest_framework import DjangoFilterBackend
 
 # Permissions
 from rest_framework.permissions import IsAuthenticated
@@ -24,6 +26,13 @@ class CircleViewSet(mixins.CreateModelMixin,
     serializer_class = CircleModelSerializer
     permission_classes = (IsAuthenticated)
     lookup_field = 'slug_name'
+
+    # Filters backend
+    filter_backend = (SearchFilter, OrderingFilter, DjangoFilterBackend)
+    search_fields = ('slug_name', 'name')
+    ordering_fields = ('rides_offered', 'rides_taken', 'name', 'created', 'member_limit')
+    ordering = ('-members__count', '-rides_offered', '-rides_taken')
+    filter_fields = ('verified', 'is_limited')
 
     def get_queryset(self):
         """Restrict list to public-only."""
